@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, send_file
 from flask import Response
 import shutil
 import os
+from werkzeug.utils import secure_filename
 from flask_cors import CORS, cross_origin
 from prediction_Validation_Insertion import pred_validation
 from trainingModel import trainModel
@@ -37,7 +38,15 @@ def predictRouteClient():
             path = pred.predictionFromModel()
             return Response("Prediction File created at %s!!!" % path)
         else:
-            path = request.form['folderPath']
+            try:
+                path = request.form['folderPath']
+            except:
+                files=request.files.getlist('files')
+                if not os.path.isdir('Custom_Batch_Files'):
+                    os.mkdir('Custom_Batch_Files')
+                for file in files:
+                    file.save(os.path.join('Custom_Batch_Files', file.filename))
+                path='Custom_Batch_Files'
 
             pred_val = pred_validation(path) #object initialization
 
@@ -47,6 +56,9 @@ def predictRouteClient():
 
             # predicting for dataset present in database
             path = pred.predictionFromModel()
+
+            if os.path.isdir('Custom_Batch_Files'):
+                shutil.rmtree('Custom_Batch_Files')
 
             # prepairing for final output folder
             output_folder='Final_Output_Folder'

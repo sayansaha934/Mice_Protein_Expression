@@ -45,8 +45,6 @@
 			color: black;
 			font-weight: bold;
 		}
-
-		
 	</style>
 </head>
 
@@ -59,9 +57,8 @@
 		Mice Protein Expression
 	</div>
 	<div class="prediction">
-		<form action="/predict" method="POST">
-			<input class="form-control" type="text" placeholder="Enter absolute file path"
-				aria-label="default input example" name="folderPath">
+		<form action="/predict" method="POST" enctype="multipart/form-data">
+			<input class="form-control" type="file" multiple aria-label="default input example" name="files">
 			<div class="d-grid gap-2 my-4">
 				<button class="btn btn-primary" type="submit">Custom File Predict</button>
 			</div>
@@ -75,7 +72,7 @@
 			</div>
 		</form>
 	</div>
-	
+
 	<footer>
 		<div class="my-4"><a href="https://github.com/sayansaha934">GitHub</a> | <a
 				href="https://www.linkedin.com/in/sayan-saha2000/">LinkedIn</a>

@@ -235,17 +235,17 @@ class Prediction_Data_validation:
                         splitAtDot = (re.split('_', splitAtDot[0]))
                         if len(splitAtDot[3]) == LengthOfDateStampInFile:
                             if len(splitAtDot[4]) == LengthOfTimeStampInFile:
-                                shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Files_Validated/Good_Raw")
+                                shutil.copy(self.Batch_Directory+ "/" + filename, "Prediction_Raw_Files_Validated/Good_Raw")
                                 self.logger.log(db, collection, 'INFO', "Valid File name!! File moved to GoodRaw Folder :: %s" % filename)
 
                             else:
-                                shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
+                                shutil.copy(self.Batch_Directory+ "/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
                                 self.logger.log(db, collection, 'INFO',"Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
                         else:
-                            shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
+                            shutil.copy(self.Batch_Directory+ "/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
                             self.logger.log(db, collection, 'INFO',"Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
                     else:
-                        shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
+                        shutil.copy(self.Batch_Directory+ "/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
                         self.logger.log(db, collection, 'INFO', "Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
 
 
