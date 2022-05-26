@@ -42,8 +42,9 @@ def predictRouteClient():
                 path = request.form['folderPath']
             except:
                 files=request.files.getlist('files')
-                if not os.path.isdir('Custom_Batch_Files'):
-                    os.mkdir('Custom_Batch_Files')
+                if os.path.isdir('Custom_Batch_Files'):
+                    shutil.rmtree('Custom_Batch_Files')
+                os.mkdir('Custom_Batch_Files')
                 for file in files:
                     file.save(os.path.join('Custom_Batch_Files', file.filename))
                 path='Custom_Batch_Files'
