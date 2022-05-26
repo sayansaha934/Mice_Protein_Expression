@@ -34,3 +34,4 @@ Werkzeug
 wincertstore
 xgboost==0.90
 zipp
+pytest
