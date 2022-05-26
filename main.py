@@ -8,7 +8,8 @@ from trainingModel import trainModel
 from training_Validation_Insertion import train_validation
 from predictFromModel import prediction
 
-
+os.putenv('LANG', 'en_US.UTF-8')
+os.putenv('LC_ALL', 'en_US.UTF-8')
 
 app = Flask(__name__)
 CORS(app)
