@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Prediction Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<style>
+		.prediction {
+			width: 40%;
+			margin: 70px auto auto auto;
+		}
+
+		.or {
+			text-align: center;
+			font-weight: bold;
+		}
+
+		.title {
+			text-align: center;
+			font-weight: bold;
+
+			font-size: 30px;
+			background-color: #f8f9fa;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			color: #273582;
+		}
+
+		footer {
+			text-align: center;
+
+			background-color: #e3e8ed;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			height: 15%;
+
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+			font-weight: bold;
+		}
+
+		
+	</style>
+</head>
+
+<body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+
+	<div class="title">
+		Mice Protein Expression
+	</div>
+	<div class="prediction">
+		<form action="/predict" method="POST">
+			<input class="form-control" type="text" placeholder="Enter absolute file path"
+				aria-label="default input example" name="folderPath">
+			<div class="d-grid gap-2 my-4">
+				<button class="btn btn-primary" type="submit">Custom File Predict</button>
+			</div>
+		</form>
+		<div class="or my-4">OR</div>
+		<form action="/predict" method="POST">
+			<input class="form-control" type="text" placeholder="Default input" aria-label="default input example"
+				value="Prediction_Batch_Files" name="folderPath" hidden>
+			<div class="d-grid gap-2 my-4">
+				<button class="btn btn-primary" type="submit">Default File Predict</button>
+			</div>
+		</form>
+	</div>
+	
+	<footer>
+		<div class="my-4"><a href="https://github.com/sayansaha934">GitHub</a> | <a
+				href="https://www.linkedin.com/in/sayan-saha2000/">LinkedIn</a>
+			<div class="my-2">Created by Sayan Saha</div>
+		</div>
+	</footer>
+</body>
+
+</html>
